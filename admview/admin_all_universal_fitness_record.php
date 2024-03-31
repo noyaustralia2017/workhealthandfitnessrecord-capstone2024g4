@@ -84,7 +84,7 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
         echo '<table id="sharedSeminarTable">
     ';
     echo '
-    <thead><tr><th>User Name</th><th>Date</th><th>20m run</th><th>Situps</th><th>Squats 60s</th><th>Arm Hangs</th><th>Press-ups</th><th> total </th></thead>';  // This is where i need to edit
+        <thead><tr><th>User Name</th><th>Date</th><th>Body Composition</th><th>Situps</th><th>Squats</th><th>Pressups</th><th>Hamstring</th><th>Right leg on top sitting</</th><th>Left leg on top sitting</th><th>Shoulder function</th><th>Aerobic Fitness</th><th>Total </th></thead>';  // This is where i need to edit
     echo '
     <tbody>
         ';
@@ -102,8 +102,10 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
             <td>' . esc_html($record->q3) . '</td>
             <td>' . esc_html($record->q4) . '</td>
             <td>' . esc_html($record->q5) . '</td>
-
-
+			            <td>' . esc_html($record->q6) . '</td>
+            <td>' . esc_html($record->q7) . '</td>
+            <td>' . esc_html($record->q8) . '</td>
+            <td>' . esc_html($record->q9) . '</td>
 			<td>' . esc_html($record->total) . '</td>
 
         </tr>';
@@ -164,7 +166,7 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
         var encodedUri = encodeURI(csvContent);
         var link = document.createElement("a");
         link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "seminar_records.csv");
+        link.setAttribute("download", "universal_fitness_records.csv");
         document.body.appendChild(link);
         link.click();
     }

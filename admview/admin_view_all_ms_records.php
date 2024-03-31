@@ -69,7 +69,7 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
             background-color: #8ab8d5;
         }
 </style>';
-        echo '<h2 id="head">Org-Wide MS Survey Records</h2>';
+        echo '<h2 id="head">Org-Wide Musculoskeletal Survey Records</h2>';
 
         // Search input field
         echo '
@@ -167,7 +167,7 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
         var encodedUri = encodeURI(csvContent);
         var link = document.createElement("a");
         link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "seminar_records.csv");
+        link.setAttribute("download", "ms_assesment_records.csv");
         document.body.appendChild(link);
         link.click();
     }

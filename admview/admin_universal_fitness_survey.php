@@ -61,6 +61,17 @@ get_header();
 		background-color: red;
 	}
 
+					  #q5g{
+						  color:green;
+					  }
+					  
+					    #q1r{
+						  color:red;
+					  }
+					  
+					   #q3y{
+						  color:orange;
+					  }
 </style>
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
@@ -105,53 +116,63 @@ get_header();
 
                         <div style="height: 30px;"></div> <!-- Add a gap -->
 <div class="form-group">
-                    <label for="q1">Q1 20m run: number of 20m laps in 5 minutes:</label>
+                    <label for="q1"><b>Body Composition</b><br>How close are you to your ideal weight</label>
 				<table>
 			
                       <tr>
-                      	<th id="Dreadful">Male</th>
-						<th id="RED"> <20</th>
-						<th id="RED">22</th>
-						<th id="RED">26</th>
-						<th id="RED">32</th>
-						<th id="YELLOW">36</th>
-						<th id="YELLOW">38</th>
-						<th id="YELLOW">40</th>
-						<th>45</th>
-						<th>50</th>
-						<th>53</th>
-						<th>55</th>
-                      
+                      	<th id="white">ideal weight</th>
+						<th id="RED"> >25   </th>
+                        						<th id="YELLOW"> <25   </th>
+						<th id="YELLOW"><20</th>
+						<th id="YELLOW"><15</th>
+						<th id="YELLOW"><10</th>
+						<th id=""><7</th>
+						<th id=""><4</th>
+						<th id=""><2</th>
+	                    
                       </tr>
                               <tr>
-                      	<th id="Dreadful">Female</th>
-						<th id="RED"> <20   </th>
-						<th id="RED">20</th>
-						<th id="RED">24</th>
-						<th id="RED">30</th>
-						<th id="YELLOW">34</th>
-						<th id="YELLOW">36</th>
-						<th id="YELLOW">38</th>
-						<th>43</th>
-						<th>46</th>
-						<th>49</th>
-						<th>52</th>
+                      	<th id="white">%fat men</th>
+						<th id="RED"> >40   </th>
+						<th id="YELLOW"><40</th>
+						<th id="YELLOW"><36</th>
+						<th id="YELLOW"><32</th>
+						<th id="YELLOW"><29</th>
+						<th id=""><26</th>
+						<th id=""><23</th>
+						<th><20</th>
                       
                       </tr>
                       
+                      
+                       <tr>
+                      	<th id="white">%fat women</th>
+						<th id="RED"> >50  </th>
+						<th id="YELLOW"><50 </th>
+						<th id="YELLOW"><46</th>
+						<th id="YELLOW"><42</th>
+						<th id="YELLOW"><39</th>
+						<th id=""><36</th>
+						<th id=""><33</th>
+						<th><30</th>
+
+                      
+                      </tr>  
+
+
+                      
+                      	
                       		  <tr>
 						<th id="white">Score</th>
-						<th id="white">0</th>
-						<th id="white">1</th>
-						<th id="white">2</th>
-						<th id="white">3</th>
-						<th id="white">4</th>
-						<th id="white">5</th>
-						<th id="white">6</th>
-						<th id="white">7</th>
-						<th id="white">8</th>
-						<th id="white">9</th>
-						<th id="white">10</th>
+						<th id="RED">3</th>
+						<th id="YELLOW">4</th>
+						<th id="YELLOW">5</th>
+						<th id="YELLOW">6</th>
+						<th id="YELLOW">7</th>
+						<th id="">8</th>
+						<th id="">9</th>
+						<th id="">10</th>
+
 					  </tr>
 					</table>
                     <select name="q1" id="q1" onChange="onChange(this)">
@@ -171,23 +192,23 @@ get_header();
 
 						                <div style="height: 30px;"></div> <!-- Add a gap -->
                 <div class="form-group">
-                    <label for="q2">Q2 Situps - consecutive number of sit-ups until exhaustion - feet held, hands clasping opposite shoulders, coming up so elbows touch the
+                    <label for="q2"><b>Front of Body Strength</b><br> Situps - consecutive number of sit-ups until exhaustion - feet held, hands clasping opposite shoulders, coming up so elbows touch the
 knees, upper back (not head) 'hitting' the ground:</label>
 														<table>
 			
                       <tr>
-                      	<th id="white"></th>
-						<th id="RED"> <5</th>
-						<th id="RED"><10</th>
+                    	<th id="white"></th>
+						<th id="RED"> <6</th>
+						<th id="RED">6</th>
+						<th id="RED">8</th>
 						<th id="RED">10</th>
-						<th id="RED">15</th>
-						<th id="YELLOW">20</th>
-						<th id="YELLOW">25</th>
-						<th id="YELLOW">30</th>
-						<th>40</th>
-						<th>50</th>
-						<th>60</th>
-						<th>70</th>   
+						<th id="YELLOW">12</th>
+						<th id="YELLOW">14</th>
+						<th id="YELLOW">16</th>
+						<th>18</th>
+						<th>20</th>
+						<th>22</th>
+						<th>24</th> 
                       </tr>
                       		  <tr>
 						<th id="white">Score</th>
@@ -221,23 +242,23 @@ knees, upper back (not head) 'hitting' the ground:</label>
 
                 <div style="height: 30px;"></div> <!-- Add a gap -->
                 <div class="form-group">
-                    <label for="q3">Q3 Squats - consecutive number of squats until exhaustion. Bottom must go down to mid-way between knees and ankles. Most people will
+                    <label for="q3"><b>Lower Body Strength</b><br> Squats - consecutive number of squats until exhaustion. Bottom must go down to mid-way between knees and ankles. Most people will
 need to use a heel raise to successfully complete the test:</label>
 														<table>
 			
                       <tr>
                       	<th id="white"></th>
-						<th id="RED"> <5</th>
-						<th id="RED"><10</th>
+						<th id="RED"> <6</th>
+						<th id="RED">6</th>
+						<th id="RED">8</th>
 						<th id="RED">10</th>
-						<th id="RED">15</th>
-						<th id="YELLOW">20</th>
-						<th id="YELLOW">25</th>
-						<th id="YELLOW">30</th>
-						<th>40</th>
-						<th>50</th>
-						<th>60</th>
-						<th>70</th>
+						<th id="YELLOW">12</th>
+						<th id="YELLOW">14</th>
+						<th id="YELLOW">16</th>
+						<th>18</th>
+						<th>20</th>
+						<th>22</th>
+						<th>24</th>
                       
                       </tr>
                
@@ -274,40 +295,23 @@ need to use a heel raise to successfully complete the test:</label>
 
                 <div style="height: 30px;"></div> <!-- Add a gap -->
                 <div class="form-group">
-                    <label for="q4">Q4 Arm hang (Second) - hanging from a bar until exhaustion:</label>
-							<table>
+                    <label for="q4"><b>Upper Body Strength</b><br> Pressups: until exhaustion: Men on toes, women on front of thighs.</label>
+														<table>
 			
                       <tr>
-                      	<th id="Dreadful">Male</th>
-						<th id="RED"> <80</th>
-						<th id="RED"><35</th>
-						<th id="RED"><30</th>
-						<th id="RED"><28</th>
-						<th id="YELLOW"><26</th>
-						<th id="YELLOW"><24</th>
-						<th id="YELLOW"><22</th>
-						<th><20</th>
-						<th><18</th>
-						<th><16</th>
-						<th><14</th>
-                      
+                    	<th id="white"></th>
+						<th id="RED"> <6</th>
+						<th id="RED">6</th>
+						<th id="RED">8</th>
+						<th id="RED">10</th>
+						<th id="YELLOW">12</th>
+						<th id="YELLOW">14</th>
+						<th id="YELLOW">16</th>
+						<th>18</th>
+						<th>20</th>
+						<th>22</th>
+						<th>24</th> 
                       </tr>
-                              <tr>
-                      	<th id="Dreadful">Female</th>
-						<th id="RED"> <20   </th>
-						<th id="RED">20</th>
-						<th id="RED">24</th>
-						<th id="RED">30</th>
-						<th id="YELLOW">34</th>
-						<th id="YELLOW">36</th>
-						<th id="YELLOW">38</th>
-						<th>43</th>
-						<th>46</th>
-						<th>49</th>
-						<th>52</th>
-                      
-                      </tr>
-                      
                       		  <tr>
 						<th id="white">Score</th>
 						<th id="white">0</th>
@@ -340,22 +344,156 @@ need to use a heel raise to successfully complete the test:</label>
 
                 <div style="height: 30px;"></div> <!-- Add a gap -->
                 <div class="form-group">
-                    <label for="q5">Q5 Pressups - consecutive number of press ups until exhaustion - men on toes, women on knees:</label>
+                    <label for="q5"><strong>Hamstring Flexibility</strong><br>
+					Sit and reach Sitting on the floor with feet outstretched in front of you, see how far down toward, or past your toes you can reach with your fingers. Keep your legs straight, back of knees on the floor</label>
 												<table>
 			
                       <tr>
                       	<th id="white"></th>
-						<th id="RED"> <5</th>
-						<th id="RED"><10</th>
-						<th id="RED">10</th>
+						<th id="RED"> Can't Touch</th>
+						<th id="YELLOW">Fingers</th>
+						<th id="YELLOW"></th>
+						<th id="YELLOW"></th>
+						<th id="YELLOW">Palm</th>
+						<th id=""></th>
+						<th id=""></th>
+						 <th id="">Wrist</th>
+
+                      
+                      </tr>
+               
+                      
+                      		  <tr>
+						<th id="white">Score</th>
+						<th id="white">0</th>
+						<th id="white">4</th>
+						<th id="white">5</th>
+						<th id="white">6</th>
+						<th id="white">7</th>
+						<th id="white">8</th>
+						<th id="white">9</th>
+						<th id="white">10</th>
+					  </tr>
+					</table>
+                    <select name="q5" id="q5">
+                        <option value="0">0</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                                                        <div style="height: 30px;"></div> <!-- Add a gap -->
+ <div style="height: 30px;"></div> <!-- Add a gap -->
+                <div class="form-group">
+                    <label for="q6"><strong>Buttocks Flexibility - Right Leg Under</strong><br>
+					Ability to sit up straight, legs crossed, hands behind back.</label>
+												<table>
+			
+                      <tr>
+                      	<th id="white"></th>
+						<th id="RED"> Big Fail</th>
+						<th id="RED">Nope</th>
+						<th id="YELLOW">Almost</th>
+						<th id="YELLOW">Just</th>
+						<th id="">Good</th>
+						  <th id="">Perfect</th>
+
+
+
+                      
+                      </tr>
+               
+                      
+                      		  <tr>
+						<th id="white">Score</th>
+						<th id="white">0</th>
+						<th id="white">1</th>
+						<th id="white">2</th>
+						<th id="white">3</th>
+						<th id="white">4</th>
+						<th id="white">5</th>
+
+					  </tr>
+					</table>
+                    <select name="q6" id="q6">
+                        <option value="0" id="q1r">0</option>
+                        <option value="1"id="q1r">1</option>
+                        <option value="2" id="q3y">2</option>
+                        <option value="3" id="q3y">3</option>
+                        <option value="4" id="q5g">4</option>
+                        <option value="5" id="q5g">5</option>
+
+                    </select>
+                </div>
+						
+						
+			 <div style="height: 30px;"></div> <!-- Add a gap -->
+                <div class="form-group">
+					<label for="q7"><strong>Buttocks Flexibility - Left Leg Under</strong><br>
+					Ability to sit up straight, legs crossed, hands behind back.
+					</label>
+												<table>
+			
+                      <tr>
+                      	<th id="white"></th>
+						<th id="RED"> Big Fail</th>
+						<th id="RED">Nope</th>
+						<th id="YELLOW">Almost</th>
+						<th id="YELLOW">Just</th>
+						<th id="">Good</th>
+						  <th id="">Perfect</th>
+
+
+
+       
+                      </tr>
+               
+                      
+                      		  <tr>
+						<th id="white">Score</th>
+						<th id="white">0</th>
+						<th id="white">1</th>
+						<th id="white">2</th>
+						<th id="white">3</th>
+						<th id="white">4</th>
+						<th id="white">5</th>
+
+					  </tr>
+					</table>
+                    <select name="q7" id="q7">
+                        <option value="0" id="q1r">0</option>
+                        <option value="1"id="q1r">1</option>
+                        <option value="2" id="q3y">2</option>
+                        <option value="3" id="q3y">3</option>
+                        <option value="4" id="q5g">4</option>
+                        <option value="5" id="q5g">5</option>
+
+                    </select>
+                </div>			
+						
+		
+							 <div style="height: 30px;"></div> <!-- Add a gap -->
+                <div class="form-group">
+                    <label for="q8"><strong> Shoulder Function</strong> <br> Stand with heels and back against the wall, arms and wrists vertical in the ‘surrender’ position. The further they are away, from the wall (in cms) the lower the score.</label>
+			<table>
+			
+                      <tr>
+                      	<th id="white"></th>
+						<th id="RED">>15</th>
 						<th id="RED">15</th>
-						<th id="YELLOW">20</th>
-						<th id="YELLOW">25</th>
-						<th id="YELLOW">30</th>
-						<th>40</th>
-						<th>50</th>
-						<th>60</th>
-						<th>70</th>
+						<th id="RED">13</th>
+						<th id="RED">11</th>
+						<th id="YELLOW">9</th>
+						<th id="YELLOW">7</th>
+						<th id="YELLOW">5</th>
+						<th>3</th>
+						<th>2</th>
+						<th>1</th>
+						<th>Flat</th>
                       
                       </tr>
                
@@ -375,7 +513,7 @@ need to use a heel raise to successfully complete the test:</label>
 						<th id="white">10</th>
 					  </tr>
 					</table>
-                    <select name="q5" id="q5">
+					<select name="q8" id="q8">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -389,8 +527,75 @@ need to use a heel raise to successfully complete the test:</label>
                         <option value="10">10</option>
                     </select>
                 </div>
-                                                        <div style="height: 30px;"></div> <!-- Add a gap -->
-
+						
+				   <div style="height: 30px;"></div> <!-- Add a gap -->
+          <div class="form-group">
+                    <label for="q9"><strong> Aerobic fitness - 5 minute, 20m lap run. </strong>
+			  		<table>
+								  <tr>
+						<th id="white">M</th>
+						<th id="RED"><22</th>
+						<th id="RED">22</th>
+						<th id="RED">24</th>
+						<th id="RED">26</th>
+						<th id="YELLOW">28</th>
+						<th id="YELLOW">32</th>
+						<th id="YELLOW">33</th>
+						<th>34</th>
+						<th>38</th>
+						<th>38</th>
+						<th>40</th>
+					  </tr>
+								  <tr>
+						<th id="white">F</th>
+						<th id="RED"><20</th>
+						<th id="RED">20</th>
+						<th id="RED">22</th>
+						<th id="RED">24</th>
+						<th id="YELLOW">26</th>
+						<th id="YELLOW">28</th>
+						<th id="YELLOW">30</th>
+						<th>32</th>
+						<th>34</th>
+						<th>36</th>
+						<th>38</th>
+					  </tr>
+					  <tr>
+						<th id="Dreadful">Poor</th>
+						<th id="RED">0</th>
+						<th id="RED">1</th>
+						<th id="RED">2</th>
+						<th id="RED">3</th>
+						<th id="YELLOW">4</th>
+						<th id="YELLOW">5</th>
+						<th id="YELLOW">6</th>
+						<th>7</th>
+						<th>8</th>
+						<th>9</th>
+						<th>10</th>
+						<th id="Excellent">Good</th>
+					  </tr>
+					</table>
+			 
+			  </label>
+                    <select name="q9" id="q9">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                
+          <div style="height: 30px;"></div> <!-- Add a gap -->		
+						
+						
                         <div class="form-group">
                             <input type="submit" name="submit_attendance" value="Submit">
                         </div>
@@ -409,8 +614,14 @@ need to use a heel raise to successfully complete the test:</label>
     $q3 = sanitize_text_field($_POST['q3']);
     $q4 = sanitize_text_field($_POST['q4']);
     $q5 = sanitize_text_field($_POST['q5']);
+						    $q6 = sanitize_text_field($_POST['q6']);
+    $q7 = sanitize_text_field($_POST['q7']);
+    $q8 = sanitize_text_field($_POST['q8']);
+    $q9 = sanitize_text_field($_POST['q9']);
+							$q9 = $q9 * 3;
+
     $date = sanitize_text_field($_POST['date']);
-	$total = $q1 + $q2 + $q3 + $q4 + $q5;
+	$total = $q1 + $q2 + $q3 + $q4 + $q5+ $q6+ $q7+ $q8+ $q9;
 
 
 
@@ -427,11 +638,16 @@ need to use a heel raise to successfully complete the test:</label>
 			'q3' => $q3, // Corrected variable name
 			'q4' => $q4, // Corrected variable name
 			'q5' => $q5, // Corrected variable name
+						'q6' => $q6, // Corrected variable name
+			'q7' => $q7, // Corrected variable name
+			'q8' => $q8, // Corrected variable name
+			'q9' => $q9, // Corrected variable name
+
 			'total' => $total, // Corrected variable name
 
 
         ),
-        array('%d', '%s', '%s','%s','%s','%s')
+        array('%d', '%s', '%s','%s','%s','%s','%s','%s','%s','%s')
     );
 
                         echo '<p>Attendance recorded successfully!</p>';

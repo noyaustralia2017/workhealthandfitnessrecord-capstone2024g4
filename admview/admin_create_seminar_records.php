@@ -61,7 +61,7 @@ get_header();
 								<option value="	How to improve Aerobic Fitness">	How to improve Aerobic Fitness</option>
 								<option value="Complete Fitness Workout">Complete Fitness Workout</option>
 								<option value="	Hourglass Diet">Hourglass Diet</option>
-								<option value="How to Lower Blood Pressure, Glucose and Cholesterol">How to Lower Blood Pressure, Glucose and Cholesterol</option>
+								<option value="How to Lower Blood Pressure Glucose and Cholesterol">How to Lower Blood Pressure Glucose and Cholesterol</option>
 								<option value="Headache Free">Headache Free</option>
 
 								

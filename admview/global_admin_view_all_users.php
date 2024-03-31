@@ -72,16 +72,16 @@ if (is_user_logged_in() && current_user_can('administrator')) {
     // Display user filtering form and export buttons
     // You can customize this part according to your design preferences
     echo '<form id="searchForm" method="GET">';
-    	echo '<h2> View All Users - Global Administrator </h2>';
-	echo '<input type="text" id="searchInput" name="search_query" placeholder="Search by Name or Email">';
+    echo '<h2> View All Users - Global Administrator </h2>';
+    echo '<input type="text" id="searchInput" name="search_query" placeholder="Search by Name or Email">';
     echo '<button type="submit" id="searchButton">Search</button>';
-	    echo '<br> <br>';
-   // echo '<button><a href="' . esc_url(add_query_arg(array('export' => 'all'))) . '" id="exportAll"></a>Export All as CSV</button>';
-    //echo '<button><a href="' . esc_url(add_query_arg(array('export' => 'filtered'))) . '" id="exportFiltered"></a>Export Filtered as CSV</button>';
+    echo '<br> <br>';
+    echo '<button class="button"><a href="' . esc_url(add_query_arg(array('export' => 'all'))) . '">Export All as CSV</a></button>';
+	echo '&nbsp;';
+    echo '<button class="button"><a href="' . esc_url(add_query_arg(array('export' => 'filtered'))) . '">Export Filtered as CSV</a></button>';
     echo '</form>';
 
-
-        echo '<style>
+    echo '<style>
             #userTable {
                 border-collapse: collapse;
                 width: 100%;
@@ -103,7 +103,7 @@ if (is_user_logged_in() && current_user_can('administrator')) {
             }
             .button {
                 background-color: #add8e6;
-                color: #000;
+                color: black;
                 padding: 10px 20px;
                 border: none;
                 border-radius: 5px;
@@ -112,30 +112,9 @@ if (is_user_logged_in() && current_user_can('administrator')) {
                 display: inline-block;
                 font-size: 16px;
             }
-            .button:hover {
-                background-color: #8ab8d5;
-            }
+			
+           
         </style>';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // Display table for users
     echo '<table id="userTable">';
