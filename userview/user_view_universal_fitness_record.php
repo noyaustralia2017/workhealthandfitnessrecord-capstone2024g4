@@ -86,10 +86,10 @@ if (is_user_logged_in()) {
 
 		echo '&nbsp;';
         //echo '<button class="button" id="downloadAllCSV">Download as CSV (All)</button>';
-        echo '<a href="https://workhealthandfitnessrecord.com.au/wp-content/uploads/2024/03/Universal-Fitness-Test.pdf" target="_blank"><button class="button space">View Questions</button></a>';
+        echo '<a href="https://workhealthandfitnessrecord.com.au/wp-content/uploads/2024/03/My_fitness_record_short_completed_21-3-24.pdf" target="_blank"><button class="button space">View Questions</button></a>';
 
         echo '<table id="mytable" class="table-responsive">';
-echo '<thead><tr><th>Date</th><th>20m Run</th><th>Situps Weight</th><th>Squats </th><th>Arm Hang</th><th>Press-ups</th><th>Total </th></thead>';  
+echo '<thead><tr><th>Date</th><th>Body Composition</th><th>Situps</th><th>Squats</th><th>Pressups</th><th>Hamstring</th><th>Right leg on top sitting</</th><th>Left leg on top sitting</th><th>Shoulder function</th><th>Aerobic Fitness</th><th>Total </th></thead>';  
 
         echo '<tbody>';
         foreach ($attendance_records as $record) {
@@ -100,6 +100,11 @@ echo '<thead><tr><th>Date</th><th>20m Run</th><th>Situps Weight</th><th>Squats <
                 <td>' . esc_html($record->q3) . '</td>
                 <td>' . esc_html($record->q4) . '</td>
                 <td>' . esc_html($record->q5) . '</td>
+				                <td>' . esc_html($record->q6) . '</td>
+                <td>' . esc_html($record->q7) . '</td>
+                <td>' . esc_html($record->q8) . '</td>
+                <td>' . esc_html($record->q9) . '</td>
+
 				 <td>' . esc_html($record->total) . '</td>
 
 
