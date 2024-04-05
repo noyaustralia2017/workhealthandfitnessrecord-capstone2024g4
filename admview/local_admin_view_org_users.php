@@ -50,10 +50,11 @@ if (is_user_logged_in()) {
             }
         </style>';
         // Display table for users
-		echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">';
+        echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">';
         echo '    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 ';
-		echo '<h2>Users in your organisation (@' . $email_domain . ')</h2>';
+        echo '<h2>Users in your organisation (@' . $email_domain . ')</h2>';
+        echo '<button class="button" onclick="exportToCSV()">Export to CSV</button>';
         echo '<table id="userTable" class="table">';
         echo '<thead><tr><th>Name</th><th>Email Address</th><th>Role</th></tr></thead>';
         echo '<tbody>';
@@ -79,6 +80,30 @@ if (is_user_logged_in()) {
 
         echo '</tbody>';
         echo '</table>';
+
+        // JavaScript function for exporting to CSV
+        echo '<script>
+            function exportToCSV() {
+                var csv = [];
+                var rows = document.querySelectorAll("#userTable tr");
+
+                for (var i = 0; i < rows.length; i++) {
+                    var row = [], cols = rows[i].querySelectorAll("td, th");
+                    for (var j = 0; j < cols.length; j++) 
+                        row.push(cols[j].innerText);
+                    csv.push(row.join(","));
+                }
+
+                // Download CSV file
+                var csvContent = "data:text/csv;charset=utf-8," + csv.join("\\n");
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "users.csv");
+                document.body.appendChild(link);
+                link.click();
+            }
+        </script>';
     } else {
         // Display message for users without permission
         echo '<p>Sorry, you do not have permission to access this page.</p>';
