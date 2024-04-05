@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: All Seminar Records - Admins
+Template Name:  Seminar Records - HR Admins
 */
 
 get_header();
@@ -60,9 +60,39 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
         </style>';
         echo '<h2 id="head">Org-Wide Seminar Records</h2>';
 
-        // Search input field
-        echo '<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">';
-        echo '<br><br>'; // Add spacing between search input and download button
+        // Filter by seminar dropdown select menu
+        echo '<label for="seminarFilter">Filter by Seminar:</label>';
+        echo '<select id="seminarFilter" onchange="filterRecords()">';
+        echo '<option value="all">All Seminars</option>';
+        $seminars = array(); // Array to store unique seminar names
+        foreach ($shared_seminar_records as $record) {
+            $seminars[$record->course] = $record->course;
+        }
+        foreach ($seminars as $seminar) {
+            echo '<option value="' . esc_attr($seminar) . '">' . esc_html($seminar) . '</option>';
+        }
+        echo '</select>';
+        echo '<br><br>'; // Add spacing between filter and table
+
+        // Filter by name input field
+        echo '<label for="nameFilter">Filter by Name:</label>';
+        echo '<input type="text" id="nameFilter" onkeyup="filterRecords()" placeholder="Search by name..." title="Type in a name">';
+        echo '<br><br>'; // Add spacing between filter and table
+
+        // Filter by year select menu
+        echo '<label for="yearFilter">Filter by Year:</label>';
+        echo '<select id="yearFilter" onchange="filterRecords()">';
+        echo '<option value="all">All Years</option>';
+        $years = array(); // Array to store unique years
+        foreach ($shared_seminar_records as $record) {
+            $year = date('Y', strtotime($record->sem_date));
+            $years[$year] = $year;
+        }
+        foreach ($years as $year) {
+            echo '<option value="' . esc_attr($year) . '">' . esc_html($year) . '</option>';
+        }
+        echo '</select>';
+        echo '<br><br>'; // Add spacing between filter and table
 
         // Download as CSV button
         echo '<button id="downloadCSV" class="button">Download as CSV</button>';
@@ -75,7 +105,7 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
             $user_info = get_userdata($record->user_id);
             $user_name = $user_info ? $user_info->display_name : 'Unknown User';
 
-            echo '<tr>
+            echo '<tr class="seminarRow" data-seminar="' . esc_attr($record->course) . '" data-year="' . esc_attr(date('Y', strtotime($record->sem_date))) . '">
                 <td>' . esc_html($user_name) . '</td>
                 <td>' . esc_html($record->sem_date) . '</td>
                 <td>' . esc_html($record->course) . '</td>
@@ -85,79 +115,69 @@ if (is_user_logged_in() && (current_user_can('administrator') || current_user_ca
         echo '</tbody>';
         echo '</table>';
 
-        // JavaScript for CSV download and search functionality
+        // JavaScript for CSV download and seminar, name, and year filtering
         echo '<script>
-            function myFunction() {
-                var input, filter, table, tr, td, i, txtValue;
-                input = document.getElementById("myInput");
-                filter = input.value.toUpperCase();
-                table = document.getElementById("sharedSeminarTable");
-                tr = table.getElementsByTagName("tr");
+            function filterRecords() {
+                var selectedSeminar = document.getElementById("seminarFilter").value.toUpperCase();
+                var nameFilter = document.getElementById("nameFilter").value.toUpperCase();
+                var selectedYear = document.getElementById("yearFilter").value.toUpperCase();
+                var rows = document.getElementsByClassName("seminarRow");
 
-                for (i = 0; i < tr.length; i++) {
-                    td = tr[i].getElementsByTagName("td")[0]; // Change the index to the column you want to search
-                    if (td) {
-                        txtValue = td.textContent || td.innerText;
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
-
-            function downloadCSV(rows) {
-                var csv = [];
-                
-                // Add header row
-                var headerRow = [];
-                var headers = document.querySelectorAll("#sharedSeminarTable thead th");
-                for (var h = 0; h < headers.length; h++) {
-                    headerRow.push(headers[h].innerText);
-                }
-                csv.push(headerRow.join(","));
-
-                // Add data rows
                 for (var i = 0; i < rows.length; i++) {
-                    var row = [];
-                    var cols = rows[i].querySelectorAll("td");
-
-                    for (var j = 0; j < cols.length; j++) {
-                        row.push(cols[j].innerText);
+                    var seminar = rows[i].getAttribute("data-seminar").toUpperCase();
+                    var userName = rows[i].getElementsByTagName("td")[0].innerText.toUpperCase();
+                    var year = rows[i].getAttribute("data-year").toUpperCase();
+                    if ((selectedSeminar === "ALL" || seminar === selectedSeminar) && 
+                        (selectedYear === "ALL" || year === selectedYear) &&
+                        userName.indexOf(nameFilter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
                     }
-
-                    csv.push(row.join(","));
                 }
-
-                var csvContent = "data:text/csv;charset=utf-8," + csv.join("\\n");
-                var encodedUri = encodeURI(csvContent);
-                var link = document.createElement("a");
-                link.setAttribute("href", encodedUri);
-                link.setAttribute("download", "seminar_records.csv");
-                document.body.appendChild(link);
-                link.click();
             }
 
-            document.getElementById("downloadCSV").addEventListener("click", function() {
-                var filter = document.getElementById("myInput").value.toUpperCase();
-                var table = document.getElementById("sharedSeminarTable");
-                var tr = table.getElementsByTagName("tr");
-                var filteredRows = [];
+function downloadCSV() {
+    var rows = document.querySelectorAll("#sharedSeminarTable tbody tr");
+    console.log("Number of rows:", rows.length);
+    var csv = [];
 
-                for (var i = 0; i < tr.length; i++) {
-                    var td = tr[i].getElementsByTagName("td")[0]; // Change the index to the column you want to search
-                    if (td) {
-                        var txtValue = td.textContent || td.innerText;
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            filteredRows.push(tr[i]);
-                        }
-                    }
-                }
+    // Add header row
+    var headerRow = [];
+    document.querySelectorAll("#sharedSeminarTable thead th").forEach(function(th) {
+        headerRow.push(th.innerText);
+    });
+    csv.push(headerRow.join(","));
 
-                downloadCSV(filteredRows);
+    // Add data rows
+    rows.forEach(function(row) {
+        if (row.style.display !== "none") {
+            var rowData = [];
+            row.querySelectorAll("td").forEach(function(col) {
+                rowData.push(col.innerText);
             });
+            csv.push(rowData.join(","));
+        }
+    });
+
+    console.log("CSV data:", csv);
+
+    var csvContent = "data:text/csv;charset=utf-8," + csv.join("\\n");
+    var encodedUri = encodeURI(csvContent);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "seminar_records.csv");
+    document.body.appendChild(link);
+    link.click();
+}
+document.getElementById("downloadCSV").addEventListener("click", function() {
+    console.log("Download button clicked");
+    downloadCSV();
+});
+
+
         </script>';
+		
     } else {
         echo '<p style="font-size:25px">No shared seminar records found.</p>';
     }
