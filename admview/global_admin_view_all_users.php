@@ -11,12 +11,14 @@ function export_users_csv($users) {
     // Create a file pointer connected to the output stream
     $output = fopen('php://output', 'w');
     // Write the headers to the file
-    fputcsv($output, array('Name', 'Email Address', 'Role'));
+    fputcsv($output, array('Name', 'Email Address', 'Domain', 'Role'));
     // Write the user data to the file
     foreach ($users as $user) {
         $user_roles = $user->roles;
         $user_role = !empty($user_roles) ? $user_roles[0] : 'N/A'; // Get the first role assigned to the user
-        fputcsv($output, array($user->display_name, $user->user_email, $user_role));
+        $email_parts = explode('@', $user->user_email);
+        $domain = end($email_parts);
+        fputcsv($output, array($user->display_name, $user->user_email, $domain, $user_role));
     }
     // Close the file pointer
     fclose($output);
@@ -77,7 +79,7 @@ if (is_user_logged_in() && current_user_can('administrator')) {
     echo '<button type="submit" id="searchButton">Search</button>';
     echo '<br> <br>';
     echo '<button class="button"><a href="' . esc_url(add_query_arg(array('export' => 'all'))) . '">Export All as CSV</a></button>';
-	echo '&nbsp;';
+    echo '&nbsp;';
     echo '<button class="button"><a href="' . esc_url(add_query_arg(array('export' => 'filtered'))) . '">Export Filtered as CSV</a></button>';
     echo '</form>';
 
@@ -112,13 +114,12 @@ if (is_user_logged_in() && current_user_can('administrator')) {
                 display: inline-block;
                 font-size: 16px;
             }
-			
            
         </style>';
 
     // Display table for users
     echo '<table id="userTable">';
-    echo '<thead><tr><th>Name</th><th>Email Address</th><th>Role</th></tr></thead>';
+    echo '<thead><tr><th>Name</th><th>Email Address</th><th>Domain</th><th>Role</th></tr></thead>';
     echo '<tbody>';
 
     // Check if search query is set
@@ -146,9 +147,12 @@ if (is_user_logged_in() && current_user_can('administrator')) {
     foreach ($users as $user) {
         $user_roles = $user->roles;
         $user_role = !empty($user_roles) ? $user_roles[0] : 'N/A'; // Get the first role assigned to the user
+        $email_parts = explode('@', $user->user_email);
+        $domain = end($email_parts);
         echo '<tr>';
         echo '<td>' . esc_html($user->display_name) . '</td>';
         echo '<td>' . esc_html($user->user_email) . '</td>';
+        echo '<td>' . esc_html($domain) . '</td>';
         echo '<td>' . esc_html($user_role) . '</td>';
         echo '</tr>';
     }
